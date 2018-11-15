@@ -1,4 +1,4 @@
-"""SIFO-ec2django URL Configuration
+"""SIFO URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from apps.usuario.views import LoginView, LogoutView
+from apps.terreno.views import index, registro
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$',  view=LoginView.as_view(),name="user_login"),
-    url(r'^logout/$',  view=LogoutView.as_view(),name="panel-logout"),
-    url(r'^terreno/', include('apps.terreno.urls'), name="terreno"),
-    url(r'^usuario/', include('apps.usuario.urls')),
+    url(r'^seguimiento', index, name='terreno_seguimiento'),
+    url(r'^registro', registro, name='terreno_registro'),
 ]
