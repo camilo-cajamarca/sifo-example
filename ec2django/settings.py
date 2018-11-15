@@ -156,9 +156,9 @@ if DEBUG:
   STATIC_URL = '/static/'
   STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 else:
-  AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_BUCKET_NAME')
-  AWS_ACCESS_KEY_ID = os.getenv('AWS_S3_ACCESS_KEY_ID')
-  AWS_SECRET_ACCESS_KEY_ID = os.getenv('AWS_S3_SECRET_KEY')
+  AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_BUCKET_NAME')
+  AWS_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID')
+  AWS_SECRET_ACCESS_KEY_ID = os.environ.get('AWS_S3_SECRET_KEY')
   AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
   
   AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400' }
@@ -172,8 +172,8 @@ else:
 
 
 # Email
-EMAIL_HOST = os.getenv('AWS_EMAIL_HOST')
-EMAIL_PORT = os.getenv('AWS_EMAIL_PORT')
-EMAIL_HOST_USER = os.getenv('AWS_EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.getenv('AWS_EMAIL_PASSWORD')
-EMAIL_USE_TLS = os.getenv('AWS_EMAIL_USE_TLS')
+EMAIL_HOST = os.environ.get('AWS_EMAIL_HOST')
+EMAIL_PORT = os.environ.get('AWS_EMAIL_PORT')
+EMAIL_HOST_USER = os.environ.get('AWS_EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('AWS_EMAIL_PASSWORD')
+EMAIL_USE_TLS = os.environ.get('AWS_EMAIL_USE_TLS')

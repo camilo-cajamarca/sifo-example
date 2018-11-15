@@ -9,14 +9,14 @@ phases:
   pre_build:
     commands:
       # Discover and run unit tests. For more information, see <https://docs.djangoproject.com/en/2.0/topics/testing/overview/>
-      - python manage.py test
+      #- python manage.py test
 
 artifacts:
   type: zip
   files:
     - 'template.yml'
     - 'ec2django/**/*'
-    - 'helloworld/**/*'
+    - 'SIFO/**/*'
     - 'scripts/**/*'
     - 'appspec.yml'
     - 'manage.py'
